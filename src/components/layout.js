@@ -18,6 +18,7 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          description
         }
       }
     }
@@ -25,7 +26,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        description={data.site.siteMetadata.description}
+      />
       <div
         style={{
           margin: `0 auto`,
@@ -34,13 +38,27 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+        <main
+          style={{
+            minHeight: 500,
+          }}
+        >
+          {children}
+        </main>
+      </div>{" "}
+      <footer
+        style={{
+          padding: `1.45rem 1.0875rem`,
+          background: "rebeccapurple",
+          color: "#fff",
+        }}
+      >
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://minamarcos.github.io/ResponsivePortfolio/">
+          Mina Marcos
+        </a>
+      </footer>
     </>
   )
 }
